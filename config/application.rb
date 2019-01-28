@@ -30,6 +30,13 @@ module GroceryList
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', headers: :any,
+        methods: [:get, :post, :put, :patch, :delete, :options, :head]
+      end
+    end
 
     # By default in Rails 4 loading an AR model won't establish a connection
     # to the database until AR needs to fetch database therefore in the console

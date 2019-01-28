@@ -4,6 +4,11 @@ class UsersController < ProtectedController
   before_action :set_user, only: %i[update show]
   skip_before_action :authenticate, only: %i[signup signin]
 
+  # Handle ['Access-Control-Allow-Origin']
+  # def options
+  #   return post :ok
+  # end 
+
   # POST '/sign-up'
   def signup
     user = User.create(user_creds)

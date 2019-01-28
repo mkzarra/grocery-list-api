@@ -3,6 +3,29 @@
 # Do not inherit from this class unless you know what you're doing
 # See ProtectedController and OpenReadController
 class ApplicationController < ActionController::API
+  # before_action :cors_preflight_check
+  # after_action :set_access_control_headers
+
+  # def cors_preflight_check
+  #   if request.method == :options
+  #     headers['Access-Control-Allow-Origin'] = '*'
+  #     headers['Access-Control-Allow-Methods'] = 'POST, PUT, GET, OPTIONS'
+  #     headers['Access-Control-Allow-Headers'] = '*'
+  #     headers['Access-Control-Max-Age'] = '1728000'
+  #     render :text => '', :content_type => 'text/plain'
+  #   end
+  # end
+
+  # def set_access_control_headers
+  #   headers['Access-Control-Allow-Origin'] = '*'
+  #   headers['Access-Control-Allow-Methods'] = 'POST'
+  #   headers['Access-Control-Allow-Headers'] = '*'
+  #   headers['Access-Control-Max-Age'] = "1728000"
+  # end
+
+  # def handle_options_request
+  #   head(:ok) if request.request_method == "OPTIONS"
+  # end
   # Force to wants JSON for API
   before_action :api_request_settings
   def api_request_settings
