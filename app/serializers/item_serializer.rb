@@ -1,3 +1,4 @@
 class ItemSerializer < ActiveModel::Serializer
-  attributes :id, :name, :department, :organic, :PLU, :price, :taxable, :on_sale, :GMO, :additional_info
+  attributes :id, :name :price, :additional_info
+  has_many :lists, through: :my_lists
 end
